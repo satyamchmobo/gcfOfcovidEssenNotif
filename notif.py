@@ -50,9 +50,9 @@ def main(request):
    if result.status_code==200:
 
      response_json = result.json()
-     userRef.document(user.id).set({
-                  'availData':response_json["centers"]
-                })
+    #  userRef.document(user.id).set({
+    #               'availData':response_json["centers"]
+    #             })
      
 
     #  if len( response_json["centers"])!=0:
@@ -61,9 +61,20 @@ def main(request):
              if (session["min_age_limit"] <= uage and session["available_capacity"] > 0 ) :
                  print(f"date: {session['date']}\n{center['name']}\nAddress: {center['address']}\nVaccine type: {session['vaccine']}\ndose1 availability: {session['available_capacity_dose1']}\ndose2 availability: {session['available_capacity_dose2']}\nSlots: {session['slots']}")
                  print("\n")
-                # userRef.document(user.id).set({
-                #   'availData':response_json["centers"].to_dict()
-                # })
+                 userRef.document(user.id).set({
+                    'availData':[{
+                    'sessionDate':session['date'],
+                    'centerName':center['name'],
+                    'centerAdd':center['address'],
+                    'vaccineType':session['vaccine'],
+                    'dose1Avail':session['available_capacity_dose1'],
+                    'dose2Avail':session['available_capacity_dose2'],
+                    'slots':session['slots'],
+                    
+                    
+                  }]
+                  })
+               
 
              else:
 
