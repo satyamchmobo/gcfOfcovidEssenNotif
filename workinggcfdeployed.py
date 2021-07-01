@@ -35,11 +35,11 @@ def main(request):
 
         
         uage=userinfo['age']
-        # upincode=470003z
+        # upincode=470003
         upincode=userinfo['PIN']
 
         #URL = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode={}&date={}".format(upincode, str(actual_dates[0])
-        URL = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode={}&date={}".format(upincode,actual_dates[0])
+        URL = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode={}&date={}".format(upincode,"30-06-2021")
         
         print(URL)
         #URL = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=160022&date=30-06-2021"
@@ -79,7 +79,7 @@ def main(request):
    except:
      print("error at request")
     #  result=500
-  #  print(result)
+   print(result)
    print("result printed here------------>>>>")
       
    
